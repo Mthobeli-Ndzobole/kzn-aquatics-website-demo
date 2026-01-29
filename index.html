@@ -449,6 +449,74 @@
             background-color: var(--lighter-gray);
         }
 
+        /* Sponsors Section */
+        .sponsors {
+            padding: 4rem 0;
+            background-color: var(--lighter-gray);
+        }
+
+        .sponsors-container {
+            text-align: center;
+        }
+
+        .sponsors-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .sponsor-logo {
+            max-width: 180px;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: var(--transition);
+            padding: 1rem;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--light-gray);
+        }
+
+        .sponsor-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: var(--shadow);
+        }
+
+        .sponsor-tier {
+            margin-bottom: 3rem;
+        }
+
+        .sponsor-tier h3 {
+            color: var(--medium-gray);
+            border-bottom: 2px solid var(--medium-gray);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .platinum-tier .sponsor-logo {
+            max-width: 220px;
+        }
+
+        .gold-tier .sponsor-logo {
+            max-width: 180px;
+        }
+
+        .silver-tier .sponsor-logo {
+            max-width: 150px;
+        }
+
+        .become-sponsor {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
         /* Footer */
         footer {
             background-color: var(--black);
@@ -534,6 +602,18 @@
             .logo-img {
                 height: 60px;
             }
+            
+            .sponsors-logos {
+                gap: 2rem;
+            }
+            
+            .sponsor-logo {
+                max-width: 150px;
+            }
+            
+            .platinum-tier .sponsor-logo {
+                max-width: 180px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -577,6 +657,23 @@
             .logo-subtitle {
                 font-size: 0.65rem;
             }
+            
+            .sponsors-logos {
+                gap: 1.5rem;
+            }
+            
+            .sponsor-logo {
+                max-width: 120px;
+                padding: 0.8rem;
+            }
+            
+            .platinum-tier .sponsor-logo {
+                max-width: 150px;
+            }
+            
+            .gold-tier .sponsor-logo {
+                max-width: 130px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -590,6 +687,27 @@
             
             .logo-subtitle {
                 font-size: 0.6rem;
+            }
+            
+            .sponsors-logos {
+                gap: 1rem;
+            }
+            
+            .sponsor-logo {
+                max-width: 100px;
+                padding: 0.5rem;
+            }
+            
+            .platinum-tier .sponsor-logo {
+                max-width: 120px;
+            }
+            
+            .gold-tier .sponsor-logo {
+                max-width: 100px;
+            }
+            
+            .silver-tier .sponsor-logo {
+                max-width: 80px;
             }
         }
 
@@ -889,6 +1007,55 @@
                             <li><a href="#">Timekeeper Certification (PDF)</a></li>
                             <li><a href="#">Judge Certification (PDF)</a></li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="sponsors">
+            <div class="container sponsors-container">
+                <h2 class="text-center">Our Valued Sponsors</h2>
+                <p class="text-center mb-3">We gratefully acknowledge the support of our sponsors who make aquatic sports development possible in KwaZulu-Natal.</p>
+                
+                <!-- Platinum Sponsors
+                <div class="sponsor-tier platinum-tier">
+                    <h3>Platinum Sponsors</h3>
+                    <div class="sponsors-logos">
+                        <img src="https://via.placeholder.com/220x100/000000/FFFFFF?text=SPORT+SA" alt="Sport SA" class="sponsor-logo">
+                        <img src="https://via.placeholder.com/220x100/333333/FFFFFF?text=KZN+SPORTS" alt="KZN Sports" class="sponsor-logo">
+                        <img src="https://via.placeholder.com/220x100/666666/FFFFFF?text=AQUA+TECH" alt="Aqua Tech" class="sponsor-logo">
+                    </div>
+                </div>
+                 -->
+                <!-- Gold Sponsors -->
+                <div class="sponsor-tier gold-tier">
+                    <div class="sponsors-logos">
+                        <img src="images/kzn-aquatics-logo.jpg" alt="Swim Gear" class="sponsor-logo">
+                        <img src="images/kzn-aquatics-logo.jpg" alt="Pool Pro" class="sponsor-logo">
+                        <img src="images/kzn-aquatics-logo.jpg" alt="Water Safety" class="sponsor-logo">
+                        <img src="images/kzn-aquatics-logo.jpg" alt="Sports Med" class="sponsor-logo">
+                    </div>
+                </div>
+                
+                <!-- Silver Sponsors -->
+                <!-- <div class="sponsor-tier silver-tier">
+                    <h3>Silver Sponsors</h3>
+                    <div class="sponsors-logos">
+                        <img src="https://via.placeholder.com/150x60/333333/FFFFFF?text=AQUA+WEAR" alt="Aqua Wear" class="sponsor-logo">
+                        <img src="https://via.placeholder.com/150x60/666666/FFFFFF?text=SWIM+ACADEMY" alt="Swim Academy" class="sponsor-logo">
+                        <img src="https://via.placeholder.com/150x60/000000/FFFFFF?text=FITNESS+PLUS" alt="Fitness Plus" class="sponsor-logo">
+                        <img src="https://via.placeholder.com/150x60/333333/FFFFFF?text=SPORTS+NUTRITION" alt="Sports Nutrition" class="sponsor-logo">
+                        <img src="https://via.placeholder.com/150x60/666666/FFFFFF?text=AQUATIC+GEAR" alt="Aquatic Gear" class="sponsor-logo">
+                    </div>
+                </div> -->
+                
+                <!-- Become a Sponsor -->
+                <div class="become-sponsor">
+                    <h3 class="text-center">Interested in Becoming a Sponsor?</h3>
+                    <p class="text-center mb-2">Partner with us to support aquatic sports development in KwaZulu-Natal.</p>
+                    <div class="text-center">
+                        <a href="#contact" class="btn">Contact Us About Sponsorship</a>
                     </div>
                 </div>
             </div>
@@ -1289,6 +1456,7 @@
                                 <option value="coaching">Coaching & Accreditation</option>
                                 <option value="technical">Technical Rules</option>
                                 <option value="other">Other</option>
+                                <option value="sponsorship">Sponsorship Inquiry</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1323,6 +1491,7 @@
                         <li><a href="#events">Events Calendar</a></li>
                         <li><a href="#clubs">Find a Club</a></li>
                         <li><a href="#documents">Policies & Rules</a></li>
+                        <li><a href="#sponsors">Sponsors</a></li>
                         <li><a href="#forms">Online Forms</a></li>
                     </ul>
                 </div>
