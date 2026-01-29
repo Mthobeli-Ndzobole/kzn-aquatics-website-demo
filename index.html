@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KZN Aquatics - Provincial Sports Federation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for Black & White Theme */
+        :root {
+            --black: #000000;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+            --light-gray: #e0e0e0;
+            --lighter-gray: #f5f5f5;
+            --white: #ffffff;
+            --accent-gray: #888888;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--black);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 3px solid var(--medium-gray);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        a:hover {
+            color: var(--black);
+            border-bottom: 1px solid var(--black);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            border: 2px solid var(--black);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--black);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--medium-gray);
+            border-color: var(--medium-gray);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--medium-gray);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--dark-gray);
+            color: var(--dark-gray);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--dark-gray);
+            color: var(--white);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-alt {
+            background-color: var(--lighter-gray);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        /* Logo Styles */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo-img {
+            height: 70px;
+            width: auto;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .logo-img:hover {
+            filter: grayscale(0%);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-main {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 1.1;
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+            margin-top: 0.3rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--dark-gray);
+            border-bottom: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+            border-bottom: 2px solid var(--black);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--black);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(50, 50, 50, 0.7)), 
+                url('https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3dpbW1pbmclMjBwb29sfGVufDB8fDB8fHww');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 0;
+            filter: grayscale(100%);
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--light-gray);
+        }
+
+        /* Announcements */
+        .announcements {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .announcement-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+
+        .announcement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: var(--medium-gray);
+        }
+
+        .announcement-header {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 1rem;
+            font-weight: 600;
+        }
+
+        .announcement-body {
+            padding: 1.5rem;
+        }
+
+        .announcement-date {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Forms */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            border: 1px solid var(--light-gray);
+        }
+
+        .demo-notice {
+            background-color: var(--lighter-gray);
+            border-left: 4px solid var(--medium-gray);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .demo-notice i {
+            color: var(--dark-gray);
+            margin-right: 0.5rem;
+        }
+
+        .form-step {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--white);
+            color: var(--dark-gray);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--black);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -0.75rem;
+        }
+
+        .form-col {
+            flex: 1;
+            padding: 0 0.75rem;
+            min-width: 250px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 3rem 1rem;
+            display: none;
+        }
+
+        .success-message i {
+            font-size: 4rem;
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: var(--medium-gray);
+        }
+
+        .card-header {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 1.2rem;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: left;
+            padding: 1rem;
+        }
+
+        table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        table tr:hover {
+            background-color: var(--lighter-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            border-bottom: 2px solid var(--medium-gray);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            border-bottom: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--medium-gray);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .form-col {
+                min-width: 100%;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .form-actions .btn {
+                width: 100%;
+            }
+            
+            .logo-container {
+                gap: 1rem;
+            }
+            
+            .logo-img {
+                height: 50px;
+            }
+            
+            .logo-main {
+                font-size: 1.2rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 40px;
+            }
+            
+            .logo-main {
+                font-size: 1rem;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.6rem;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mb-3 { margin-bottom: 3rem; }
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mt-3 { margin-top: 3rem; }
+
+        .hidden {
+            display: none;
+        }
+        
+        /* Additional styles for the hero logo */
+        .hero-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 1.5rem;
+        }
+        
+        .hero-logo-img {
+            height: 100px;
+            width: auto;
+            filter: grayscale(100%) brightness(200%);
+        }
+        
+        .hero-logo-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        .hero-logo-main {
+            font-size: 2.2rem;
+            color: var(--white);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+        
+        .hero-logo-subtitle {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            letter-spacing: 2px;
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="./images/kzn-aquatics-logo.jpg" alt="KZN Aquatics Logo" class="logo-img">
+                <div class="logo-text">
+                    <div class="logo-main">KZN AQUATICS</div>
+                    <div class="logo-subtitle">KWAZULU-NATAL AQUATICS</div>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#clubs">Clubs</a></li>
+                    <li><a href="#documents">Documents</a></li>
+                    <li><a href="#forms">Forms</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-logo-container">
+                    <!-- <img src="./images/kzn-aquatics-logo.jpg" alt="KZN Aquatics Logo" class="hero-logo-img"> -->
+                    <div class="hero-logo-text">
+                        <div class="hero-logo-main">KZN AQUATICS</div>
+                        <!-- <div class="hero-logo-subtitle">   KWAZULU-NATAL AQUATICS</div> -->
+                    </div>
+                </div>
+                <h1>Welcome to KZN Aquatics</h1>
+                <p>Promoting and developing aquatic sports across KwaZulu-Natal. Our mission is to foster excellence in swimming, water polo, diving, and synchronized swimming.</p>
+                <a href="#forms" class="btn btn-secondary">Explore Digital Forms</a>
+            </div>
+        </section>
+
+        <!-- Announcements Section -->
+        <section class="container">
+            <h2 class="text-center">Latest Announcements</h2>
+            <div class="announcements">
+                <div class="announcement-card">
+                    <div class="announcement-header">New Competition Dates</div>
+                    <div class="announcement-body">
+                        <div class="announcement-date">May 15, 2023</div>
+                        <h3>2023 Provincial Championships</h3>
+                        <p>The dates for the 2023 KZN Aquatics Provincial Championships have been confirmed for November 10-15, 2023.</p>
+                    </div>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-header">Coach Accreditation</div>
+                    <div class="announcement-body">
+                        <div class="announcement-date">May 10, 2023</div>
+                        <h3>Accreditation Workshop</h3>
+                        <p>Level 1 coaching accreditation workshop scheduled for June 5-7, 2023. Register through the forms section.</p>
+                    </div>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-header">New Safety Policies</div>
+                    <div class="announcement-body">
+                        <div class="announcement-date">May 5, 2023</div>
+                        <h3>Updated Safety Guidelines</h3>
+                        <p>New safety and risk management policies have been published. All clubs must review by June 1, 2023.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-alt">
+            <div class="container">
+                <h2>About KZN Aquatics</h2>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-header">Our Mission</div>
+                        <div class="card-body">
+                            <p>To develop, promote, and regulate aquatic sports in KwaZulu-Natal, providing opportunities for all to participate and excel in a safe, inclusive, and competitive environment.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Our Vision</div>
+                        <div class="card-body">
+                            <p>To be a leading provincial sports federation recognized for excellence in athlete development, competition organization, and governance of aquatic sports.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Our Values</div>
+                        <div class="card-body">
+                            <p>Excellence, Integrity, Inclusivity, Safety, and Development. These values guide all our programs, competitions, and administrative processes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="container">
+            <h2>Events & Competitions</h2>
+            <p>Upcoming events and competitions organized by KZN Aquatics.</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>KZN Junior Championships</td>
+                            <td>July 15-18, 2023</td>
+                            <td>Durban Aquatic Centre</td>
+                            <td><a href="#">Information Pack</a></td>
+                        </tr>
+                        <tr>
+                            <td>Water Polo Provincial Tournament</td>
+                            <td>August 5-7, 2023</td>
+                            <td>Pietermaritzburg Pool</td>
+                            <td><a href="#">Information Pack</a></td>
+                        </tr>
+                        <tr>
+                            <td>Open Water Swimming Challenge</td>
+                            <td>September 10, 2023</td>
+                            <td>Umhlanga Beach</td>
+                            <td><a href="#">Information Pack</a></td>
+                        </tr>
+                        <tr>
+                            <td>KZN Aquatics Gala</td>
+                            <td>October 21, 2023</td>
+                            <td>Durban International Pool</td>
+                            <td><a href="#">Information Pack</a></td>
+                        </tr>
+                        <tr>
+                            <td>Provincial Championships</td>
+                            <td>November 10-15, 2023</td>
+                            <td>Durban Aquatic Centre</td>
+                            <td><a href="#">Information Pack</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Clubs Section -->
+        <section id="clubs" class="section-alt">
+            <div class="container">
+                <h2>Affiliated Clubs</h2>
+                <p>KZN Aquatics supports and regulates swimming clubs across KwaZulu-Natal.</p>
+                
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-header">Durban Dolphins SC</div>
+                        <div class="card-body">
+                            <p><strong>Contact:</strong> John Smith - 031 123 4567</p>
+                            <p><strong>Training:</strong> Durban Aquatic Centre, Mon-Fri 4-7pm</p>
+                            <p><strong>Specialties:</strong> Competitive swimming, Water polo</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">PMB Marlins</div>
+                        <div class="card-body">
+                            <p><strong>Contact:</strong> Sarah Johnson - 033 234 5678</p>
+                            <p><strong>Training:</strong> Pietermaritzburg Pool, Tue-Thu 5-8pm</p>
+                            <p><strong>Specialties:</strong> Synchronized swimming, Diving</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Umhlanga Sharks</div>
+                        <div class="card-body">
+                            <p><strong>Contact:</strong> David Wilson - 032 345 6789</p>
+                            <p><strong>Training:</strong> Umhlanga Pool, Mon-Sat 6-9am, 3-6pm</p>
+                            <p><strong>Specialties:</strong> Open water, Triathlon training</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">Ballito Tide SC</div>
+                        <div class="card-body">
+                            <p><strong>Contact:</strong> Lisa Brown - 032 456 7890</p>
+                            <p><strong>Training:</strong> Ballito Pool, Daily 4-7pm</p>
+                            <p><strong>Specialties:</strong> Junior development, Masters swimming</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section id="documents" class="container">
+            <h2>Documents & Policies</h2>
+            <p>Official documents, policies, and forms for KZN Aquatics.</p>
+            
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Governance Documents</h3>
+                        <ul>
+                            <li><a href="#">Constitution (PDF)</a></li>
+                            <li><a href="#">Code of Conduct (PDF)</a></li>
+                            <li><a href="#">Anti-Doping Policy (PDF)</a></li>
+                            <li><a href="#">Child Protection Policy (PDF)</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Competition Rules</h3>
+                        <ul>
+                            <li><a href="#">Swimming Competition Rules (PDF)</a></li>
+                            <li><a href="#">Water Polo Regulations (PDF)</a></li>
+                            <li><a href="#">Diving Competition Rules (PDF)</a></li>
+                            <li><a href="#">Open Water Guidelines (PDF)</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Accreditation Forms</h3>
+                        <ul>
+                            <li><a href="#">Coach Accreditation Application (PDF)</a></li>
+                            <li><a href="#">Official Registration (PDF)</a></li>
+                            <li><a href="#">Timekeeper Certification (PDF)</a></li>
+                            <li><a href="#">Judge Certification (PDF)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forms Section -->
+        <section id="forms" class="section-alt">
+            <div class="container">
+                <h2 class="text-center">Digital Forms Demo</h2>
+                <p class="text-center mb-3">This section demonstrates how manual processes could be digitized. These are interactive demo forms - no data is saved.</p>
+                
+                <div class="demo-notice">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Demo Only:</strong> This is a demonstration of how forms could work. No data is saved or submitted to any server.
+                </div>
+                
+                <div class="form-tabs">
+                    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                        <button class="btn btn-outline form-tab-btn active" data-form="club-registration">Club Registration</button>
+                        <button class="btn btn-outline form-tab-btn" data-form="swimmer-registration">Swimmer Registration</button>
+                        <button class="btn btn-outline form-tab-btn" data-form="coach-accreditation">Coach Accreditation</button>
+                        <button class="btn btn-outline form-tab-btn" data-form="event-entry">Event Entry</button>
+                    </div>
+                    
+                    <!-- Club Registration Form -->
+                    <div id="club-registration-form" class="form-container form-demo active">
+                        <h3>Club Registration Form</h3>
+                        <p>Register a new club with KZN Aquatics.</p>
+                        
+                        <div class="form-step active" id="club-step-1">
+                            <div class="form-group">
+                                <label for="club-name">Club Name *</label>
+                                <input type="text" id="club-name" class="form-control" placeholder="Enter club name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="club-abbreviation">Club Abbreviation *</label>
+                                <input type="text" id="club-abbreviation" class="form-control" placeholder="e.g., DDSC for Durban Dolphins" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="club-established">Year Established *</label>
+                                        <input type="number" id="club-established" class="form-control" min="1900" max="2023" value="2020" required>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="club-members">Number of Members *</label>
+                                        <input type="number" id="club-members" class="form-control" min="1" value="50" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div></div>
+                                <button class="btn next-step" data-next="club-step-2">Next</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step" id="club-step-2">
+                            <div class="form-group">
+                                <label for="club-address">Club Address *</label>
+                                <textarea id="club-address" class="form-control" rows="3" placeholder="Full physical address of the club" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="training-venue">Primary Training Venue *</label>
+                                <input type="text" id="training-venue" class="form-control" placeholder="Name and address of primary training pool" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="training-times">Regular Training Times *</label>
+                                <textarea id="training-times" class="form-control" rows="3" placeholder="e.g., Monday-Friday 4-7pm, Saturday 7-10am" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-outline prev-step" data-prev="club-step-1">Back</button>
+                                <button class="btn next-step" data-next="club-step-3">Next</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step" id="club-step-3">
+                            <div class="form-group">
+                                <label for="club-chairperson">Club Chairperson *</label>
+                                <input type="text" id="club-chairperson" class="form-control" placeholder="Full name" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="club-email">Email Address *</label>
+                                        <input type="email" id="club-email" class="form-control" placeholder="club@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="club-phone">Phone Number *</label>
+                                        <input type="tel" id="club-phone" class="form-control" placeholder="031 123 4567" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="sports-covered">Aquatic Sports Covered *</label>
+                                <div style="margin-top: 0.5rem;">
+                                    <label style="display: block; margin-bottom: 0.5rem;"><input type="checkbox" name="sports" value="swimming"> Swimming</label>
+                                    <label style="display: block; margin-bottom: 0.5rem;"><input type="checkbox" name="sports" value="water-polo"> Water Polo</label>
+                                    <label style="display: block; margin-bottom: 0.5rem;"><input type="checkbox" name="sports" value="diving"> Diving</label>
+                                    <label style="display: block;"><input type="checkbox" name="sports" value="synchronized"> Synchronized Swimming</label>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-outline prev-step" data-prev="club-step-2">Back</button>
+                                <button class="btn submit-form" data-form="club">Submit Registration</button>
+                            </div>
+                        </div>
+                        
+                        <div class="success-message" id="club-success">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Club Registration Submitted Successfully!</h3>
+                            <p>Thank you for registering your club with KZN Aquatics. Your application will be reviewed within 5-7 working days.</p>
+                            <p><strong>Reference Number:</strong> KZNA-CL-2023-087</p>
+                            <p>You will receive a confirmation email with further instructions.</p>
+                            <button class="btn mt-2 new-form">Submit Another Registration</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Swimmer Registration Form -->
+                    <div id="swimmer-registration-form" class="form-container form-demo">
+                        <h3>Swimmer Registration Form</h3>
+                        <p>Register a new swimmer with KZN Aquatics.</p>
+                        
+                        <div class="form-step active" id="swimmer-step-1">
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="swimmer-firstname">First Name *</label>
+                                        <input type="text" id="swimmer-firstname" class="form-control" placeholder="Swimmer's first name" required>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="swimmer-lastname">Last Name *</label>
+                                        <input type="text" id="swimmer-lastname" class="form-control" placeholder="Swimmer's last name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="swimmer-dob">Date of Birth *</label>
+                                <input type="date" id="swimmer-dob" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="swimmer-gender">Gender *</label>
+                                <select id="swimmer-gender" class="form-control" required>
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <div></div>
+                                <button class="btn next-step" data-next="swimmer-step-2">Next</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step" id="swimmer-step-2">
+                            <div class="form-group">
+                                <label for="swimmer-club">Club *</label>
+                                <select id="swimmer-club" class="form-control" required>
+                                    <option value="">Select club</option>
+                                    <option value="ddsc">Durban Dolphins SC</option>
+                                    <option value="pmb">PMB Marlins</option>
+                                    <option value="umhlanga">Umhlanga Sharks</option>
+                                    <option value="ballito">Ballito Tide SC</option>
+                                    <option value="other">Other (specify below)</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="other-club-container" style="display: none;">
+                                <label for="other-club">Other Club Name</label>
+                                <input type="text" id="other-club" class="form-control" placeholder="Enter club name">
+                            </div>
+                            <div class="form-group">
+                                <label for="swimmer-events">Primary Events</label>
+                                <select id="swimmer-events" class="form-control" multiple>
+                                    <option value="freestyle">Freestyle</option>
+                                    <option value="backstroke">Backstroke</option>
+                                    <option value="breaststroke">Breaststroke</option>
+                                    <option value="butterfly">Butterfly</option>
+                                    <option value="im">Individual Medley</option>
+                                    <option value="open-water">Open Water</option>
+                                </select>
+                                <small>Hold Ctrl/Cmd to select multiple events</small>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-outline prev-step" data-prev="swimmer-step-1">Back</button>
+                                <button class="btn submit-form" data-form="swimmer">Submit Registration</button>
+                            </div>
+                        </div>
+                        
+                        <div class="success-message" id="swimmer-success">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Swimmer Registration Successful!</h3>
+                            <p>The swimmer has been registered with KZN Aquatics.</p>
+                            <p><strong>Registration Number:</strong> KZNA-SW-2023-542</p>
+                            <p>This registration is valid until December 31, 2023.</p>
+                            <button class="btn mt-2 new-form">Register Another Swimmer</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Coach Accreditation Form -->
+                    <div id="coach-accreditation-form" class="form-container form-demo">
+                        <h3>Coach Accreditation Application</h3>
+                        <p>Apply for coach accreditation with KZN Aquatics.</p>
+                        
+                        <div class="form-step active" id="coach-step-1">
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="coach-firstname">First Name *</label>
+                                        <input type="text" id="coach-firstname" class="form-control" placeholder="Coach's first name" required>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="coach-lastname">Last Name *</label>
+                                        <input type="text" id="coach-lastname" class="form-control" placeholder="Coach's last name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="coach-email">Email Address *</label>
+                                <input type="email" id="coach-email" class="form-control" placeholder="coach@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="coach-phone">Phone Number *</label>
+                                <input type="tel" id="coach-phone" class="form-control" placeholder="031 123 4567" required>
+                            </div>
+                            <div class="form-actions">
+                                <div></div>
+                                <button class="btn next-step" data-next="coach-step-2">Next</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step" id="coach-step-2">
+                            <div class="form-group">
+                                <label for="accreditation-level">Accreditation Level *</label>
+                                <select id="accreditation-level" class="form-control" required>
+                                    <option value="">Select level</option>
+                                    <option value="level1">Level 1 - Assistant Coach</option>
+                                    <option value="level2">Level 2 - Club Coach</option>
+                                    <option value="level3">Level 3 - Senior Coach</option>
+                                    <option value="level4">Level 4 - Master Coach</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="coaching-experience">Coaching Experience (Years) *</label>
+                                <input type="number" id="coaching-experience" class="form-control" min="0" max="50" value="3" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="coach-qualifications">Relevant Qualifications</label>
+                                <textarea id="coach-qualifications" class="form-control" rows="3" placeholder="List any relevant qualifications, courses, or certifications"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-outline prev-step" data-prev="coach-step-1">Back</button>
+                                <button class="btn submit-form" data-form="coach">Submit Application</button>
+                            </div>
+                        </div>
+                        
+                        <div class="success-message" id="coach-success">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Accreditation Application Submitted!</h3>
+                            <p>Your coach accreditation application has been received.</p>
+                            <p><strong>Application Reference:</strong> KZNA-CO-2023-219</p>
+                            <p>You will be contacted within 10 working days regarding the next steps in the accreditation process.</p>
+                            <button class="btn mt-2 new-form">Submit Another Application</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Event Entry Form -->
+                    <div id="event-entry-form" class="form-container form-demo">
+                        <h3>Event Entry Submission</h3>
+                        <p>Submit entries for an upcoming competition.</p>
+                        
+                        <div class="form-step active" id="event-step-1">
+                            <div class="form-group">
+                                <label for="selected-event">Select Event *</label>
+                                <select id="selected-event" class="form-control" required>
+                                    <option value="">Choose an event</option>
+                                    <option value="junior-champs">KZN Junior Championships (July 15-18)</option>
+                                    <option value="water-polo">Water Polo Provincial Tournament (August 5-7)</option>
+                                    <option value="open-water">Open Water Swimming Challenge (September 10)</option>
+                                    <option value="gala">KZN Aquatics Gala (October 21)</option>
+                                    <option value="provincials">Provincial Championships (November 10-15)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="entering-club">Club Name *</label>
+                                <input type="text" id="entering-club" class="form-control" placeholder="Name of club submitting entries" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-person">Contact Person *</label>
+                                <input type="text" id="contact-person" class="form-control" placeholder="Name of person submitting entries" required>
+                            </div>
+                            <div class="form-actions">
+                                <div></div>
+                                <button class="btn next-step" data-next="event-step-2">Next</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step" id="event-step-2">
+                            <div class="form-group">
+                                <label>Number of Entries</label>
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="swimmer-count">Swimmers</label>
+                                            <input type="number" id="swimmer-count" class="form-control" min="0" value="8">
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <div class="form-group">
+                                            <label for="event-count">Individual Events</label>
+                                            <input type="number" id="event-count" class="form-control" min="0" value="24">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="special-requirements">Special Requirements</label>
+                                <textarea id="special-requirements" class="form-control" rows="3" placeholder="Any special requirements, notes, or requests"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="entry-file">Upload Entry File (Demo)</label>
+                                <input type="file" id="entry-file" class="form-control" disabled>
+                                <small>In a real implementation, this would allow file upload</small>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn btn-outline prev-step" data-prev="event-step-1">Back</button>
+                                <button class="btn submit-form" data-form="event">Submit Entries</button>
+                            </div>
+                        </div>
+                        
+                        <div class="success-message" id="event-success">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Event Entries Submitted!</h3>
+                            <p>Your event entries have been successfully submitted.</p>
+                            <p><strong>Entry Reference:</strong> KZNA-ENTRY-2023-753</p>
+                            <p>Please ensure payment is made within 7 days to confirm your entries.</p>
+                            <button class="btn mt-2 new-form">Submit More Entries</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container">
+            <h2 class="text-center">Contact KZN Aquatics</h2>
+            
+            <div class="form-container">
+                <div class="form-row">
+                    <div class="form-col">
+                        <h3>Contact Information</h3>
+                        <div class="mb-2">
+                            <p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong></p>
+                            <p>KZN Aquatics Office<br>
+                            Durban Aquatic Centre<br>
+                            Masabalala Yengwa Avenue<br>
+                            Durban, 4001</p>
+                        </div>
+                        <div class="mb-2">
+                            <p><strong><i class="fas fa-phone"></i> Phone:</strong></p>
+                            <p>031 123 4567</p>
+                        </div>
+                        <div class="mb-2">
+                            <p><strong><i class="fas fa-envelope"></i> Email:</strong></p>
+                            <p>admin@kznaquatics.org.za</p>
+                        </div>
+                        <div class="mb-2">
+                            <p><strong><i class="fas fa-clock"></i> Office Hours:</strong></p>
+                            <p>Monday - Friday: 8:00 AM - 4:00 PM<br>
+                            Saturday: Closed<br>
+                            Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <h3>Send an Enquiry</h3>
+                        <div class="form-group">
+                            <label for="contact-name">Your Name *</label>
+                            <input type="text" id="contact-name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address *</label>
+                            <input type="email" id="contact-email" class="form-control" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject *</label>
+                            <select id="contact-subject" class="form-control" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Enquiry</option>
+                                <option value="membership">Membership</option>
+                                <option value="events">Events & Competitions</option>
+                                <option value="coaching">Coaching & Accreditation</option>
+                                <option value="technical">Technical Rules</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message *</label>
+                            <textarea id="contact-message" class="form-control" rows="4" placeholder="Your message..." required></textarea>
+                        </div>
+                        <button class="btn submit-contact">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo-container" style="margin-bottom: 1rem;">
+                        <img src="./images/kzn-aquatics-logo.jpg" alt="KZN Aquatics Logo" class="logo-img" style="height: 50px;">
+                        <div class="logo-text">
+                            <div class="logo-main" style="font-size: 1.3rem; color: white;">KZN AQUATICS</div>
+                            <div class="logo-subtitle" style="color: var(--light-gray); font-size: 0.65rem;">KWAZULU-NATAL AQUATICS</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--light-gray);">The provincial sports federation for aquatic sports in KwaZulu-Natal, promoting swimming, water polo, diving, and synchronized swimming.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#events">Events Calendar</a></li>
+                        <li><a href="#clubs">Find a Club</a></li>
+                        <li><a href="#documents">Policies & Rules</a></li>
+                        <li><a href="#forms">Online Forms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div style="display: flex; gap: 1rem; font-size: 1.5rem; margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 KZN Aquatics. This is a demonstration website. All content is for demo purposes only.</p>
+                <p class="mt-1">Website Concept & Design Demo BY Mthobeli Ndzobole @ DevioDigital</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Form Tab Switching
+        document.querySelectorAll('.form-tab-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all tabs and forms
+                document.querySelectorAll('.form-tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.form-demo').forEach(form => form.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding form
+                const formId = this.getAttribute('data-form') + '-form';
+                document.getElementById(formId).classList.add('active');
+                
+                // Reset the form to first step
+                const formContainer = document.getElementById(formId);
+                formContainer.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
+                formContainer.querySelectorAll('.success-message').forEach(msg => msg.style.display = 'none');
+                formContainer.querySelector('.form-step').classList.add('active');
+            });
+        });
+
+        // Form Step Navigation
+        document.addEventListener('click', function(e) {
+            // Next step buttons
+            if (e.target.classList.contains('next-step')) {
+                e.preventDefault();
+                const nextStepId = e.target.getAttribute('data-next');
+                const currentStep = e.target.closest('.form-step');
+                const nextStep = document.getElementById(nextStepId);
+                
+                // Simple validation - check required fields
+                let isValid = true;
+                currentStep.querySelectorAll('[required]').forEach(input => {
+                    if (!input.value.trim()) {
+                        isValid = false;
+                        input.style.borderColor = 'red';
+                    } else {
+                        input.style.borderColor = '';
+                    }
+                });
+                
+                if (isValid) {
+                    currentStep.classList.remove('active');
+                    nextStep.classList.add('active');
+                } else {
+                    alert('Please fill in all required fields before proceeding.');
+                }
+            }
+            
+            // Previous step buttons
+            if (e.target.classList.contains('prev-step')) {
+                e.preventDefault();
+                const prevStepId = e.target.getAttribute('data-prev');
+                const currentStep = e.target.closest('.form-step');
+                const prevStep = document.getElementById(prevStepId);
+                
+                currentStep.classList.remove('active');
+                prevStep.classList.add('active');
+            }
+            
+            // Show other club field if "Other" is selected
+            if (e.target.id === 'swimmer-club') {
+                const otherClubContainer = document.getElementById('other-club-container');
+                if (e.target.value === 'other') {
+                    otherClubContainer.style.display = 'block';
+                    document.getElementById('other-club').required = true;
+                } else {
+                    otherClubContainer.style.display = 'none';
+                    document.getElementById('other-club').required = false;
+                }
+            }
+        });
+
+        // Form Submission
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('submit-form')) {
+                e.preventDefault();
+                
+                // Get the form type
+                const formType = e.target.getAttribute('data-form');
+                const formContainer = e.target.closest('.form-demo');
+                
+                // Hide all form steps
+                formContainer.querySelectorAll('.form-step').forEach(step => {
+                    step.classList.remove('active');
+                });
+                
+                // Show success message
+                const successMessage = formContainer.querySelector('.success-message');
+                successMessage.style.display = 'block';
+                
+                // Generate a random reference number
+                const refElement = successMessage.querySelector('p strong');
+                if (refElement) {
+                    const refNumber = Math.floor(100000 + Math.random() * 900000);
+                    refElement.nextSibling.textContent = ` KZNA-${formType.toUpperCase()}-2023-${refNumber}`;
+                }
+            }
+            
+            // New form button
+            if (e.target.classList.contains('new-form')) {
+                e.preventDefault();
+                const formContainer = e.target.closest('.form-demo');
+                
+                // Hide success message
+                formContainer.querySelector('.success-message').style.display = 'none';
+                
+                // Show first step
+                formContainer.querySelectorAll('.form-step')[0].classList.add('active');
+                
+                // Reset form fields
+                formContainer.querySelectorAll('input, textarea, select').forEach(field => {
+                    if (field.type !== 'button' && field.type !== 'submit') {
+                        field.value = '';
+                        field.checked = false;
+                    }
+                });
+            }
+        });
+
+        // Contact Form Submission
+        document.querySelector('.submit-contact').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            let isValid = true;
+            const contactForm = document.querySelector('#contact form');
+            contactForm.querySelectorAll('[required]').forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = 'red';
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+            
+            if (isValid) {
+                alert('Thank you for your message! In a real implementation, this would be sent to the KZN Aquatics team.\n\nThis is a demo - no message was actually sent.');
+                // Reset form
+                contactForm.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Demo notice for form interactions
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('focus', function() {
+                if (!this.hasAttribute('data-notice-shown')) {
+                    console.log('Demo Notice: This is an interactive demo form. No data is saved or submitted.');
+                    this.setAttribute('data-notice-shown', 'true');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
